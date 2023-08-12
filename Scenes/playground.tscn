@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtnhvsrvs62mo"]
+
+[ext_resource type="PackedScene" uid="uid://888or01i3q2d" path="res://Utility/DI/scene_context.tscn" id="1_s2csr"]
+[ext_resource type="Script" path="res://Scenes/playground_injector.gd" id="2_absw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hueqj"]
+albedo_color = Color(0.388235, 0.545098, 0.560784, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ven1n"]
+material = SubResource("StandardMaterial3D_hueqj")
+size = Vector2(20, 20)
+
+[node name="Playground" type="Node"]
+
+[node name="SceneContext" parent="." instance=ExtResource("1_s2csr")]
+
+[node name="Injector" type="Node" parent="SceneContext"]
+script = ExtResource("2_absw7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ven1n")
